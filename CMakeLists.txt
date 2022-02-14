@@ -1,0 +1,11 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+PROJECT(minerboi)
+SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+
+FIND_PACKAGE(OpenCL REQUIRED)
+INCLUDE_DIRECTORIES(${OPENCL_INCLUDE_DIR})
+
+ADD_EXECUTABLE(bigolchungus
+    bigolchungus.cpp common.cpp
+    blake2s_ref.c opencl_backend.cpp)
+TARGET_LINK_LIBRARIES(bigolchungus ${OPENCL_LIBRARY})
